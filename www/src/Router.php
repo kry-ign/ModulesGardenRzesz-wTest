@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 namespace App;
 
 class Router
@@ -26,9 +28,9 @@ class Router
             $access = "home";
         }
 
-        $access             = explode("!", $access);
-        $this->controller   = $access[0];
-        $this->method       = count($access) == 1 ? "default" : $access[1];
+        $access = explode("!", $access);
+        $this->controller = $access[0];
+        $this->method = count($access) == 1 ? "default" : $access[1];
     }
 
     public function setController(): void
@@ -52,8 +54,8 @@ class Router
 
     public function run(): void
     {
-        $this->controller   = new $this->controller();
-        $response           = call_user_func([$this->controller, $this->method]);
+        $this->controller = new $this->controller();
+        $response = call_user_func([$this->controller, $this->method]);
 
         echo filter_var($response);
     }
