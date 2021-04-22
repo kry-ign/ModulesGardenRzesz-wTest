@@ -1,0 +1,32 @@
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Home{% endblock %}
+
+{% block description %}Homepage{% endblock %}
+
+{% block main %}
+    <main id="home">
+            <a href="index.php?access=AccountController!create" accesskey="h" title="Home">
+                <button> Create user </button>
+            </a>
+        <section>
+            <ul>
+                {% for account in accounts %}
+                    <li>
+                       Name:  {{ account.username }} ROLE: {{ account.role }}
+                        <form method="POST" action="index.php?access=AccountController!delete">
+                            <label for="username">Username</label>
+                            <div>
+                                <input type="hidden" name="username" id="username" value="{{ account.username }}">
+                            </div>
+                            <div>
+                                <input type="submit" name="submit" value="Delete">
+                            </div>
+                        </form>
+                        <hr>
+                    </li>
+                {% endfor %}
+            </ul>
+        </section>
+    </main>
+{% endblock %}

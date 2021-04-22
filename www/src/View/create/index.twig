@@ -1,0 +1,45 @@
+{% extends 'layout/layout.twig' %}
+
+{% block title %}Create{% endblock %}
+
+{% block description %}Create{% endblock %}
+
+{% block main %}
+    <main id="home">
+        <section>
+            <form method="POST" action="index.php?access=AccountController!create">
+                <label for="username">Username</label>
+                <div>
+                    <input type="text" name="username" id="username" value="">
+                </div>
+                <label for="email">Email</label>
+                <div>
+                    <input type="email" name="email" id="email" value="">
+                </div>
+
+                <label for="password">Password</label>
+                <div>
+                    <input type="password" name="password" id="password" value="">
+                </div>
+                <label for="domain">Domain</label>
+                <div>
+                    <input type="text" name="domain" id="domain" value="">
+                </div>
+                <label for="notify">You need notify?</label>
+                <div>
+                    <input type="checkbox" name="notify" id="notify" checked="checked">
+                </div>
+                <label for="role">Role</label>
+                <div>
+                    <select name="role" id="role" size="1">
+                        <option value="user">User</option>
+                        <option value="admin">Admin</option>
+                    </select>
+                </div>
+                <div>
+                    <input type="submit" name="submit" value="Submit">
+                </div>
+            </form>
+        </section>
+    </main>
+{% endblock %}
